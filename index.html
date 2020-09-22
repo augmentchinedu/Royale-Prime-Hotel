@@ -3002,232 +3002,181 @@
                   <div class="vc_row-full-width vc_clearfix"></div>
                </div>
             </div>
-         </div>
-      </footer>
-      <div class="rokka-minicart">
-         <div id="hotel_booking_mini_cart_5f6619d8304a8" class="hotel_booking_mini_cart">
-            <p class="hb_mini_cart_empty">Your cart is empty.</p>
-         </div>
-      </div>
-      <div class="rokka-minicart-open ">
-         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-book-open">
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-         </svg>
-         <div><span class="rokka-minicart-open--count" data-count="0">0</span> in cart</div>
-         <div class="rokka-minicart-open__close">Close</div>
-      </div>
-      <script type="text/html" id="tmpl-hb-minicart-item">
-         <div class="hb_mini_cart_item active" data-cart-id="{{ data.cart_id }}">
-         
-             <div class="hb_mini_cart_top">
-         
-                 <h4 class="hb_title"><a href="{{{ data.permalink }}}">{{ data.name }}</a></h4>
-                 <span class="hb_mini_cart_remove"><i class="fa fa-times"></i></span>
-         
-             </div>
-         
-             <div class="hb_mini_cart_number">
-         
-                 <label>Quantity: </label>
-                 <span>{{ data.quantity }}</span>
-         
-             </div>
-         
-             <# if ( typeof data.extra_packages !== 'undefined' && Object.keys( data.extra_packages ).length > 0 ) { #>
-                 <div class="hb_mini_cart_price_packages">
-                     <label>Addition Services:</label>
-                     <ul>
-                         <#  for ( var i = 0; i < Object.keys( data.extra_packages ).length; i++ ) { #>
-                                 <# var pack = data.extra_packages[i]; #>
-                                 <li>
-                                     <div class="hb_package_title">
-                                         <a href="#">{{{ pack.package_title }}}</a>
-                                         <# if( !pack.required) {#>
-                                             <span>
-                                                 ({{{ pack.package_quantity }}})
-                                                 <a href="#" class="hb_package_remove" data-cart-id="{{ pack.cart_id }}">
-                                                     <i class="fa fa-times"></i>
-                                                 </a>
-                                             </span>
-                                         <# } #>
-                                     </div>
-                                 </li>
-                          <# } #>
-                     </ul>
-                 </div>
-             <# } #>
-         
-             <div class="hb_mini_cart_price">
-         
-                 <label>Price: </label>
-                 <span>{{{ data.total }}}</span>
-         
-             </div>
-         
-         </div>
-      </script>
-      <script type="text/html" id="tmpl-hb-minicart-footer">
-         <div class="hb_mini_cart_footer">
-         
-             <a href="https://puruno.com/rokka/hotel-checkout/" class="hb_checkout btn btn-dark btn-solid">Check Out</a>
-             <a href="https://puruno.com/rokka/hotel-cart/" class="hb_view_cart btn btn-accent btn-solid">View Cart</a>
-         
-         </div>
-      </script>
-      <script type="text/html" id="tmpl-hb-minicart-empty">
-         <p class="hb_mini_cart_empty">Your cart is empty.</p>
-      </script>
-      <!--Single search form-->
-      <script type="text/html" id="tmpl-hb-room-load-form-cart">
-         <form action="POST" name="hb-search-results"
-               class="hb-search-room-results hotel-booking-search hotel-booking-single-room-action">
-         
-         	<div class="hb-booking-room-form-head">
-         		<h2 class="hb-room-name">Luxury Hotel</h2>
-         		<p class="description">Please select number of room and packages(optional)</p>
-         	</div>
-         
-         	<div class="hb-search-results-form-container">
-         		
-         		<# if ( typeof data.qty !== 'undefined' ) { #>
-         		<div class="hb-booking-room-form-group">
-         			<div class="hb-booking-room-form-field hb-form-field-input">
-         										<select name="hb-num-of-rooms" class="number_room_select" style="display: none;">
-         						<option value="1">1</option>
-         					</select>
-         								</div>
-         		</div>
-         		<# } #>
-         							</div>
-         
-         	<div class="hb-booking-room-form-footer">
-         		<a href="#" data-template="hb-room-load-form" class="hb_previous_step hb_button">Previous</a>
-         		<button type="submit" class="hb_add_to_cart hb_button btn btn-solid btn-md btn-accent">Add To Cart</button>
-         		<input type="hidden" name="check_in_date_text" value="{{ data.check_in_date_text }}" />
-         		<input type="hidden" name="check_out_date_text" value="{{ data.check_out_date_text }}" />
-         		<input type="hidden" name="check_in_date" value="{{ data.check_in_date }}" />
-         		<input type="hidden" name="check_out_date" value="{{ data.check_out_date }}" />
-         		<input type="hidden" name="room-id" value="5" />
-         		<input type="hidden" name="action" value="hotel_booking_ajax_add_to_cart" />
-         		<input type="hidden" name="is_single" value="1" />
-         		<input type="hidden" id="nonce" name="nonce" value="2cd65cd24f" /><input type="hidden" name="_wp_http_referer" value="/rokka/luxury-hotel/" />		</div>
-         </form>
-         
-      </script>
-      <!-- Matomo -->
-      <script type="text/javascript">
-         var _paq = window._paq || [];
-         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-         _paq.push(['trackPageView']);
-         _paq.push(['enableLinkTracking']);
-         (function () {
-         	var u = "//yosoftware.com/piwik/";
-         	_paq.push(['setTrackerUrl', u + 'piwik.php']);
-         	_paq.push(['setSiteId', '38']);
-         	var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-         	g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'piwik.js'; s.parentNode.insertBefore(g, s);
-         })();
-      </script>
-      <!-- End Matomo Code -->
-      <script>(function () {
-         function addEventListener(element, event, handler) {
-         	if (element.addEventListener) {
-         		element.addEventListener(event, handler, false);
-         	} else if (element.attachEvent) {
-         		element.attachEvent('on' + event, handler);
-         	}
-         } function maybePrefixUrlField() {
-         	if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {
-         		this.value = "http://" + this.value;
-         	}
-         }
-         
-         var urlFields = document.querySelectorAll('.mc4wp-form input[type="url"]');
-         if (urlFields && urlFields.length > 0) {
-         	for (var j = 0; j < urlFields.length; j++) {
-         		addEventListener(urlFields[j], 'blur', maybePrefixUrlField);
-         	}
-         }/* test if browser supports date fields */
-         var testInput = document.createElement('input');
-         testInput.setAttribute('type', 'date');
-         if (testInput.type !== 'date') {
-         
-         	/* add placeholder & pattern to all date fields */
-         	var dateFields = document.querySelectorAll('.mc4wp-form input[type="date"]');
-         	for (var i = 0; i < dateFields.length; i++) {
-         		if (!dateFields[i].placeholder) {
-         			dateFields[i].placeholder = 'YYYY-MM-DD';
-         		}
-         		if (!dateFields[i].pattern) {
-         			dateFields[i].pattern = '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])';
-         		}
-         	}
-         }
-         
-         })();
-      </script>
-      <link rel='stylesheet' id='vc_animate-css-css'
-         href='wp-content\plugins\js_composer\assets\lib\bower\animate-css\animate.min.css' type='text/css'
-         media='all'>
-      <script type='text/javascript'>
-         /* <![CDATA[ */
-         var wpcf7 = { "apiSettings": { "root": "https:\/\/puruno.com\/rokka\/wp-json\/contact-form-7\/v1", "namespace": "contact-form-7\/v1" } };
-         /* ]]> */
-      </script>
-      <script type='text/javascript' src='wp-content\plugins\contact-form-7\includes\js\scripts.js'></script>
-      <script type='text/javascript'>
-         /* <![CDATA[ */
-         var TPHB_Extra_Lang = [];
-         /* ]]> */
-      </script>
-      <script type='text/javascript'
-         src='wp-content\plugins\wp-hotel-booking\includes\plugins\wp-hotel-booking-extra\assets\js\site.min.js'></script>
-      <script type='text/javascript'>
-         /* <![CDATA[ */
-         var hotel_booking_i18n = { "invalid_email": "Your email address is invalid.", "no_payment_method_selected": "Please select your payment method.", "confirm_tos": "Please accept our Terms and Conditions.", "no_rooms_selected": "Please select at least one the room.", "empty_customer_title": "Please select your title.", "empty_customer_first_name": "Please enter your first name.", "empty_customer_last_name": "Please enter your last name.", "empty_customer_address": "Please enter your address.", "empty_customer_city": "Please enter your city name.", "empty_customer_state": "Please enter your state.", "empty_customer_postal_code": "Please enter your postal code.", "empty_customer_country": "Please select your country.", "empty_customer_phone": "Please enter your phone number.", "customer_email_invalid": "Your email is invalid.", "customer_email_not_match": "Your email does not match with existing email! Ok to create a new customer information.", "empty_check_in_date": "Please select check in date.", "empty_check_out_date": "Please select check out date.", "check_in_date_must_be_greater": "Check in date must be greater than the current.", "check_out_date_must_be_greater": "Check out date must be greater than the check in.", "enter_coupon_code": "Please enter coupon code.", "review_rating_required": "Please select a rating.", "waring": { "room_select": "Please select room number.", "try_again": "Please try again!" }, "date_time_format": "MM dd, yy", "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"], "date_start": "1", "view_cart": "View Cart", "cart_url": "https:\/\/puruno.com\/rokka\/hotel-cart\/" };
-         var hotel_booking_i18n = { "invalid_email": "Your email address is invalid.", "no_payment_method_selected": "Please select your payment method.", "confirm_tos": "Please accept our Terms and Conditions.", "no_rooms_selected": "Please select at least one the room.", "empty_customer_title": "Please select your title.", "empty_customer_first_name": "Please enter your first name.", "empty_customer_last_name": "Please enter your last name.", "empty_customer_address": "Please enter your address.", "empty_customer_city": "Please enter your city name.", "empty_customer_state": "Please enter your state.", "empty_customer_postal_code": "Please enter your postal code.", "empty_customer_country": "Please select your country.", "empty_customer_phone": "Please enter your phone number.", "customer_email_invalid": "Your email is invalid.", "customer_email_not_match": "Your email does not match with existing email! Ok to create a new customer information.", "empty_check_in_date": "Please select check in date.", "empty_check_out_date": "Please select check out date.", "check_in_date_must_be_greater": "Check in date must be greater than the current.", "check_out_date_must_be_greater": "Check out date must be greater than the check in.", "enter_coupon_code": "Please enter coupon code.", "review_rating_required": "Please select a rating.", "waring": { "room_select": "Please select room number.", "try_again": "Please try again!" }, "date_time_format": "MM dd, yy", "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"], "date_start": "1", "view_cart": "View Cart", "cart_url": "https:\/\/puruno.com\/rokka\/hotel-cart\/" };
-         /* ]]> */
-      </script>
-      <script type='text/javascript' src='wp-content\plugins\wp-hotel-booking\assets\js\hotel-booking.min.js'></script>
-      <script type='text/javascript'
-         src='wp-content\plugins\wp-hotel-booking-booking-room\inc\libraries\magnific-popup\jquery.magnific-popup.min.js'></script>
-      <script type='text/javascript'>
-         /* <![CDATA[ */
-         var Hotel_Booking_Blocked_Days = { "blocked_days": [] };
-         /* ]]> */
-      </script>
-      <script type='text/javascript' src='wp-content\plugins\wp-hotel-booking-booking-room\assets\js\site.js'></script>
-      <script type='text/javascript' src='wp-includes\js\imagesloaded.min.js'></script>
-      <script type='text/javascript' src='wp-includes\js\masonry.min.js'></script>
-      <script type='text/javascript' src='wp-content\themes\rokka\assets\js\libs\TweenMax.min.js'></script>
-      <script type='text/javascript' src='wp-content\themes\rokka\assets\js\libs\ScrollToPlugin.min.js'></script>
-      <script type='text/javascript' src='wp-content\themes\rokka\assets\js\libs\sticky-kit.min.js'></script>
-      <script type='text/javascript' src='wp-content\themes\rokka\assets\js\libs\swiper.min.js'></script>
-      <script type='text/javascript' src='wp-content\themes\rokka\assets\js\libs\jarallax.min.js'></script>
-      <script type='text/javascript' src='wp-content\themes\rokka\assets\js\libs\jarallax-video.min.js'></script>
-      <script type='text/javascript' src='wp-content\themes\rokka\assets\js\libs\vegas.min.js'></script>
-      <script type='text/javascript' src='wp-content\themes\rokka\assets\js\libs\countUp.js'></script>
-      <script type='text/javascript' src='wp-content\themes\rokka\assets\js\libs\jquery.mb.YTPlayer.min.js'></script>
-      <script type='text/javascript'>
-         /* <![CDATA[ */
-         var rest_object = { "api_nonce": "e3dcdf448b", "api_url": "https:\/\/puruno.com\/rokka\/wp-json\/wp\/v2\/" };
-         /* ]]> */
-      </script>
-      <script type='text/javascript' src='wp-content\themes\rokka\assets\js\app.js'></script>
-      <script type='text/javascript' src='wp-includes\js\wp-embed.min.js'></script>
-      <script type='text/javascript'
-         src='wp-content\plugins\js_composer\assets\js\dist\js_composer_front.min.js'></script>
-      <script type='text/javascript'
-         src='wp-content\plugins\js_composer\assets\lib\vc_waypoints\vc-waypoints.min.js'></script>
-      <script type='text/javascript'>
-         /* <![CDATA[ */
-         var mc4wp_forms_config = [];
-         /* ]]> */
-      </script>
-      <script type='text/javascript' src='wp-content\plugins\mailchimp-for-wp\assets\js\forms-api.min.js'></script>
-   </body>
-</html>
+        <# } #>
 
+        <div class="hb_mini_cart_price">
+
+            <label>Price: </label>
+            <span>{{{ data.total }}}</span>
+
+        </div>
+
+    </div>
+</script>
+	<script type="text/html" id="tmpl-hb-minicart-footer">
+    <div class="hb_mini_cart_footer">
+
+        <a href="https://puruno.com/rokka/hotel-checkout/" class="hb_checkout btn btn-dark btn-solid">Check Out</a>
+        <a href="https://puruno.com/rokka/hotel-cart/" class="hb_view_cart btn btn-accent btn-solid">View Cart</a>
+
+    </div>
+</script>
+	<script type="text/html" id="tmpl-hb-minicart-empty">
+    <p class="hb_mini_cart_empty">Your cart is empty.</p>
+</script>
+	<!--Single search form-->
+	<script type="text/html" id="tmpl-hb-room-load-form-cart">
+
+	<form action="POST" name="hb-search-results"
+	      class="hb-search-room-results hotel-booking-search hotel-booking-single-room-action">
+
+		<div class="hb-booking-room-form-head">
+			<h2 class="hb-room-name">Luxury Hotel</h2>
+			<p class="description">Please select number of room and packages(optional)</p>
+		</div>
+
+		<div class="hb-search-results-form-container">
+			
+			<# if ( typeof data.qty !== 'undefined' ) { #>
+			<div class="hb-booking-room-form-group">
+				<div class="hb-booking-room-form-field hb-form-field-input">
+											<select name="hb-num-of-rooms" class="number_room_select" style="display: none;">
+							<option value="1">1</option>
+						</select>
+									</div>
+			</div>
+			<# } #>
+								</div>
+
+		<div class="hb-booking-room-form-footer">
+			<a href="#" data-template="hb-room-load-form" class="hb_previous_step hb_button">Previous</a>
+			<button type="submit" class="hb_add_to_cart hb_button btn btn-solid btn-md btn-accent">Add To Cart</button>
+			<input type="hidden" name="check_in_date_text" value="{{ data.check_in_date_text }}" />
+			<input type="hidden" name="check_out_date_text" value="{{ data.check_out_date_text }}" />
+			<input type="hidden" name="check_in_date" value="{{ data.check_in_date }}" />
+			<input type="hidden" name="check_out_date" value="{{ data.check_out_date }}" />
+			<input type="hidden" name="room-id" value="5" />
+			<input type="hidden" name="action" value="hotel_booking_ajax_add_to_cart" />
+			<input type="hidden" name="is_single" value="1" />
+			<input type="hidden" id="nonce" name="nonce" value="2cd65cd24f" /><input type="hidden" name="_wp_http_referer" value="/rokka/luxury-hotel/" />		</div>
+	</form>
+
+</script>
+	<!-- Matomo -->
+	<script type="text/javascript">
+		var _paq = window._paq || [];
+		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+		_paq.push(['trackPageView']);
+		_paq.push(['enableLinkTracking']);
+		(function () {
+			var u = "//yosoftware.com/piwik/";
+			_paq.push(['setTrackerUrl', u + 'piwik.php']);
+			_paq.push(['setSiteId', '38']);
+			var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+			g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'piwik.js'; s.parentNode.insertBefore(g, s);
+		})();
+	</script>
+	<!-- End Matomo Code -->
+	<script>(function () {
+			function addEventListener(element, event, handler) {
+				if (element.addEventListener) {
+					element.addEventListener(event, handler, false);
+				} else if (element.attachEvent) {
+					element.attachEvent('on' + event, handler);
+				}
+			} function maybePrefixUrlField() {
+				if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {
+					this.value = "http://" + this.value;
+				}
+			}
+
+			var urlFields = document.querySelectorAll('.mc4wp-form input[type="url"]');
+			if (urlFields && urlFields.length > 0) {
+				for (var j = 0; j < urlFields.length; j++) {
+					addEventListener(urlFields[j], 'blur', maybePrefixUrlField);
+				}
+			}/* test if browser supports date fields */
+			var testInput = document.createElement('input');
+			testInput.setAttribute('type', 'date');
+			if (testInput.type !== 'date') {
+
+				/* add placeholder & pattern to all date fields */
+				var dateFields = document.querySelectorAll('.mc4wp-form input[type="date"]');
+				for (var i = 0; i < dateFields.length; i++) {
+					if (!dateFields[i].placeholder) {
+						dateFields[i].placeholder = 'YYYY-MM-DD';
+					}
+					if (!dateFields[i].pattern) {
+						dateFields[i].pattern = '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])';
+					}
+				}
+			}
+
+		})();</script>
+	<link rel='stylesheet' id='vc_animate-css-css'
+		href='..\wp-content\plugins\js_composer\assets\lib\bower\animate-css\animate.min.css' type='text/css'
+		media='all'>
+	<script type='text/javascript'>
+		/* <![CDATA[ */
+		var wpcf7 = { "apiSettings": { "root": "https:\/\/puruno.com\/rokka\/wp-json\/contact-form-7\/v1", "namespace": "contact-form-7\/v1" } };
+/* ]]> */
+	</script>
+	<script type='text/javascript' src='..\wp-content\plugins\contact-form-7\includes\js\scripts.js'></script>
+	<script type='text/javascript'>
+		/* <![CDATA[ */
+		var TPHB_Extra_Lang = [];
+/* ]]> */
+	</script>
+	<script type='text/javascript'
+		src='..\wp-content\plugins\wp-hotel-booking\includes\plugins\wp-hotel-booking-extra\assets\js\site.min.js'></script>
+	<script type='text/javascript'>
+		/* <![CDATA[ */
+		var hotel_booking_i18n = { "invalid_email": "Your email address is invalid.", "no_payment_method_selected": "Please select your payment method.", "confirm_tos": "Please accept our Terms and Conditions.", "no_rooms_selected": "Please select at least one the room.", "empty_customer_title": "Please select your title.", "empty_customer_first_name": "Please enter your first name.", "empty_customer_last_name": "Please enter your last name.", "empty_customer_address": "Please enter your address.", "empty_customer_city": "Please enter your city name.", "empty_customer_state": "Please enter your state.", "empty_customer_postal_code": "Please enter your postal code.", "empty_customer_country": "Please select your country.", "empty_customer_phone": "Please enter your phone number.", "customer_email_invalid": "Your email is invalid.", "customer_email_not_match": "Your email does not match with existing email! Ok to create a new customer information.", "empty_check_in_date": "Please select check in date.", "empty_check_out_date": "Please select check out date.", "check_in_date_must_be_greater": "Check in date must be greater than the current.", "check_out_date_must_be_greater": "Check out date must be greater than the check in.", "enter_coupon_code": "Please enter coupon code.", "review_rating_required": "Please select a rating.", "waring": { "room_select": "Please select room number.", "try_again": "Please try again!" }, "date_time_format": "MM dd, yy", "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"], "date_start": "1", "view_cart": "View Cart", "cart_url": "https:\/\/puruno.com\/rokka\/hotel-cart\/" };
+		var hotel_booking_i18n = { "invalid_email": "Your email address is invalid.", "no_payment_method_selected": "Please select your payment method.", "confirm_tos": "Please accept our Terms and Conditions.", "no_rooms_selected": "Please select at least one the room.", "empty_customer_title": "Please select your title.", "empty_customer_first_name": "Please enter your first name.", "empty_customer_last_name": "Please enter your last name.", "empty_customer_address": "Please enter your address.", "empty_customer_city": "Please enter your city name.", "empty_customer_state": "Please enter your state.", "empty_customer_postal_code": "Please enter your postal code.", "empty_customer_country": "Please select your country.", "empty_customer_phone": "Please enter your phone number.", "customer_email_invalid": "Your email is invalid.", "customer_email_not_match": "Your email does not match with existing email! Ok to create a new customer information.", "empty_check_in_date": "Please select check in date.", "empty_check_out_date": "Please select check out date.", "check_in_date_must_be_greater": "Check in date must be greater than the current.", "check_out_date_must_be_greater": "Check out date must be greater than the check in.", "enter_coupon_code": "Please enter coupon code.", "review_rating_required": "Please select a rating.", "waring": { "room_select": "Please select room number.", "try_again": "Please try again!" }, "date_time_format": "MM dd, yy", "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"], "date_start": "1", "view_cart": "View Cart", "cart_url": "https:\/\/puruno.com\/rokka\/hotel-cart\/" };
+/* ]]> */
+	</script>
+	<script type='text/javascript' src='..\wp-content\plugins\wp-hotel-booking\assets\js\hotel-booking.min.js'></script>
+	<script type='text/javascript'
+		src='..\wp-content\plugins\wp-hotel-booking-booking-room\inc\libraries\magnific-popup\jquery.magnific-popup.min.js'></script>
+	<script type='text/javascript'>
+		/* <![CDATA[ */
+		var Hotel_Booking_Blocked_Days = { "blocked_days": [] };
+/* ]]> */
+	</script>
+	<script type='text/javascript' src='..\wp-content\plugins\wp-hotel-booking-booking-room\assets\js\site.js'></script>
+	<script type='text/javascript' src='..\wp-includes\js\imagesloaded.min.js'></script>
+	<script type='text/javascript' src='..\wp-includes\js\masonry.min.js'></script>
+	<script type='text/javascript' src='..\wp-content\themes\rokka\assets\js\libs\TweenMax.min.js'></script>
+	<script type='text/javascript' src='..\wp-content\themes\rokka\assets\js\libs\ScrollToPlugin.min.js'></script>
+	<script type='text/javascript' src='..\wp-content\themes\rokka\assets\js\libs\sticky-kit.min.js'></script>
+	<script type='text/javascript' src='..\wp-content\themes\rokka\assets\js\libs\swiper.min.js'></script>
+	<script type='text/javascript' src='..\wp-content\themes\rokka\assets\js\libs\jarallax.min.js'></script>
+	<script type='text/javascript' src='..\wp-content\themes\rokka\assets\js\libs\jarallax-video.min.js'></script>
+	<script type='text/javascript' src='..\wp-content\themes\rokka\assets\js\libs\vegas.min.js'></script>
+	<script type='text/javascript' src='..\wp-content\themes\rokka\assets\js\libs\countUp.js'></script>
+	<script type='text/javascript' src='..\wp-content\themes\rokka\assets\js\libs\jquery.mb.YTPlayer.min.js'></script>
+	<script type='text/javascript'>
+		/* <![CDATA[ */
+		var rest_object = { "api_nonce": "e3dcdf448b", "api_url": "https:\/\/puruno.com\/rokka\/wp-json\/wp\/v2\/" };
+/* ]]> */
+	</script>
+	<script type='text/javascript' src='..\wp-content\themes\rokka\assets\js\app.js'></script>
+	<script type='text/javascript' src='..\wp-includes\js\wp-embed.min.js'></script>
+	<script type='text/javascript'
+		src='..\wp-content\plugins\js_composer\assets\js\dist\js_composer_front.min.js'></script>
+	<script type='text/javascript'
+		src='..\wp-content\plugins\js_composer\assets\lib\vc_waypoints\vc-waypoints.min.js'></script>
+	<script type='text/javascript'>
+		/* <![CDATA[ */
+		var mc4wp_forms_config = [];
+/* ]]> */
+	</script>
+	<script type='text/javascript' src='..\wp-content\plugins\mailchimp-for-wp\assets\js\forms-api.min.js'></script>
+	<!--[if lte IE 9]>
+<script type='text/javascript' src='https://puruno.com/rokka/wp-content/plugins/mailchimp-for-wp/assets/js/third-party/placeholders.min.js'></script>
+<![endif]-->
+
+
+</body>
+
+</html>
