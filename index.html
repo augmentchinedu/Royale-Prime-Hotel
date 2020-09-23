@@ -658,10 +658,11 @@
                   <ul class="navbar-first-level">
                      <li
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item has-children">
-                        <a href="#">EN <i class="ml-1 fa fa-angle-down"></i></a>
+                        <a href="javascript:;" id="English" onclick="checklang('English')">EN <i class="ml-1 fa fa-angle-down"></i></a>
                         <ul class="sub-menu dropdown-left">
-                           <li><a href="#">Français</a></li>
-                           <li><a href="#">Deutsch</a></li>
+                           <li><a href="javascript:;" id="French" onclick="checklang('French')">Français</a></li>
+                           <li><a href="javascript:;" id="Deutsch" onclick="checklang('Deutsch')">Deutsch</a></li>
+                           <div style="display: none;" id="google_translate_element"></div>
                         </ul>
                      </li>
                   </ul>
@@ -673,24 +674,23 @@
       <div class="nav-overlay">
          <div class="overlay-nav-header">
             <header class="main-logo">
-               <h1 style="font-size: 18px;"><a href="#home"><span>ROYALE PRIME HOTEL</span></a></h1>
+               <a href="#"><img src="logo2.png"></a>
             </header>
             <div class="burger-nav"></div>
          </div>
          <div class="overlay-nav-content">
             <div class="overlay-content">
-               <p>666 088 666<br>
-                  <a href="mailto:hello@rokka.com">hello@rokka.com</a><br>
-                  <a href="#">Get directions</a>
+               <p>+35780080586<br>
+                  <a href="mailto:info@royaleprimehotel.com">info@royaleprimehotel.com</a><br>
                </p>
                <p><a href="#">Facebook</a><br>
                   <a href="#">Instagram</a>
                </p>
                <div class="overlay-nav-language-switcher">
                   <ul>
-                     <li><a href="#">Français</a></li>
-                     <li><span class="rokka-mobile-current-language">English</span></li>
-                     <li><a href="#">Deutsch</a></li>
+                     <li><a href="javascript:;" id="French" onclick="checklang('French')">Français</a></li>
+                     <li><a href="javascript:;" id="English" onclick="checklang('English')"><span class="rokka-mobile-current-language">English</span></a></li>
+                     <li><a href="javascript:;" id="Deutsch" onclick="checklang('Deutsch')">Deutsch</a></li>
                   </ul>
                </div>
             </div>
@@ -742,11 +742,11 @@
                                     <div class="" style=" height: 200px"></div>
                                  </div>
                                  <div
-                                    class="heading-with-separator text-center id_15f6619d8247b02134031911   wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp intro-heading">
+                                    class="heading-with-separator text-center id_15f6619d8247b02134031911   wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp intro-heading" style="opacity: 1;">
                                     <div class="header-content">
                                        <p class="h-subheading">WELCOME TO</p>
                                        <h1 class="heading  heading-decorator-2"
-                                          style="letter-spacing: 10px; ">ROYALE PRIME HOTEL</h1>
+                                          style="letter-spacing: 10px;font-size: larger; ">ROYALE PRIME HOTEL</h1>
                                     </div>
                                  </div>
                                  <div class="custom-styles"
@@ -873,7 +873,7 @@
                                        <div class="vc_column-inner  ">
                                           <div class="wpb_wrapper">
                                              <div
-                                                class="heading-with-separator text-center id_15f6619d826476895147415   wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp ">
+                                                class="heading-with-separator text-center id_15f6619d826476895147415   wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp " style="opacity: 1;">
                                                 <div class="header-content">
                                                    <!-- <p class="h-subheading">LUXURY HOTEL ROKKA</p> -->
                                                    <h1 class="heading  heading-decorator-2"
@@ -885,7 +885,7 @@
                                                 data-styles=".id_15f6619d826476895147415 .heading-decorator-1:before, .id_15f6619d826476895147415 .heading-decorator-1:after { border-color: }">
                                              </div>
                                              <div
-                                                class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp">
+                                                class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp" style="opacity: 1;">
                                                 <div class="wpb_wrapper">
                                                    <p style="text-align: center;">Located in the divided capital city of Cyprus on a
                                                       private 20-acre estate, Royale Prime Hotel sets the yardstick for luxurious
@@ -2621,7 +2621,7 @@
                                  <div class="wpb_wrapper">
                                     <p><span style="font-size: 14px;"><strong>Email:</strong> <a
                                        href="mailto:info@royaleprimehotel.com">info@royaleprimehotel.com</a></span><br>
-                                       <span style="font-size: 14px;"><strong>Tel:</strong> ++35780080586</span><br>
+                                       <span style="font-size: 14px;"><strong>Tel:</strong> +35780080586</span><br>
                                        <span style="font-size: 14px;"><strong>Address:</strong> 11 Agiou Marona 1010, 
                                        Nicosia (Lefkosa) Cyprus </span>
                                     </p>
@@ -3002,14 +3002,6 @@
                   <div class="vc_row-full-width vc_clearfix"></div>
                </div>
             </div>
-        <# } #>
-
-        <div class="hb_mini_cart_price">
-
-            <label>Price: </label>
-            <span>{{{ data.total }}}</span>
-
-        </div>
 
     </div>
 </script>
@@ -3045,7 +3037,6 @@
 						</select>
 									</div>
 			</div>
-			<# } #>
 								</div>
 
 		<div class="hb-booking-room-form-footer">
@@ -3175,8 +3166,47 @@
 	<!--[if lte IE 9]>
 <script type='text/javascript' src='https://puruno.com/rokka/wp-content/plugins/mailchimp-for-wp/assets/js/third-party/placeholders.min.js'></script>
 <![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+   function checklang(x){
+   // var newlang = document.getElementById(x).innerHTML;
+   // document.getElementById('current').innerHTML = newlang;
+   translateLanguage(x);
+   }
+   
+</script>
+<script type="text/javascript">
+   function googleTranslateElementInit() {
+     new google.translate.TranslateElement({pageLanguage: 'en',  layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+   }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+   function translateLanguage(lang) {
+   
+       var $frame = $('.goog-te-menu-frame:first');
+       if (!$frame.size()) {
+           alert("Error: Could not find Google translate frame.");
+           return false;
+       }
+       $frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
+       return false;
+   }
+</script>
 
-
+<style>
+   
+.skiptranslate{
+	display: none;
+}
+body{
+	top: 0px !important;
+}
+#goog-gt-tt{
+display: none;
+}
+</style>
 </body>
 
 </html>
